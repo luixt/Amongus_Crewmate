@@ -1,15 +1,17 @@
 import './App.css';
 import React from 'react';
 import { useRoutes } from 'react-router-dom'
-import ReadPosts from './pages/ReadPosts'
-import CreatePost from './pages/CreatePost'
-import EditPost from './pages/EditPost'
+import ReadCrew from './pages/ReadCrew'
+import CreateCrew from './pages/CreateCrew'
+import EditCrew from './pages/EditCrew'
+import CrewHome from './pages/CrewHome'
+import CrewmateDetail from './pages/CrewmateDetail'
 import { Link } from 'react-router-dom'
 
 
 const App = () => {
   
-  const posts = [
+  const crewmates = [
     
   ]
  
@@ -18,15 +20,23 @@ const App = () => {
   let element = useRoutes([
     {
       path: "/",
-      element:<ReadPosts data={posts}/>
+      element:<CrewHome />
+    },
+    {
+      path: "/crew",
+      element:<ReadCrew data={crewmates}/>
     },
     {
       path:"/edit/:id",
-      element: <EditPost data={posts} />
+      element: <EditCrew data={crewmates} />
+    },
+    {
+      path:"/crewmates/:id",
+      element: <CrewmateDetail />
     },
     {
       path:"/new",
-      element: <CreatePost />
+      element: <CreateCrew />
     }
   ]);
 
@@ -35,9 +45,9 @@ const App = () => {
     <div className="App">
 
       <div className="header">
-        <h1>👍 Bet 1.0</h1>
-        <Link to="/"><button className="headerBtn"> Explore Challenges 🔍  </button></Link>
-        <Link to="/new"><button className="headerBtn"> Submit Challenge 🏆 </button></Link>
+        <Link to="/"><button className="headerBtn"> Crewmate Factory 🏢  </button></Link>
+        <Link to="/crew"><button className="headerBtn"> Explore The Crew 🔍  </button></Link>
+        <Link to="/new"><button className="headerBtn"> Create Character 🔦 </button></Link>
       </div>
         {element}
     </div>
