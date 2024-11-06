@@ -29,7 +29,7 @@ const ReadCrew = (props) => {
                 crewmates && crewmates.length > 0 ?
                 crewmates.map((member) => 
                    <Card key={member.id} id={member.id} name={member.name} color={member.color} speed={member.speed} role={member.role}/>
-                ) : <h2>{'No Members Yet 😞'}</h2>
+                ) : <h2>No Members Yet 😞</h2>
             }
         </div>  
     )

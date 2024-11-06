@@ -16,7 +16,7 @@ const CreateCrew = () => {
         window.location = "/";
     }
 
-    const [crewmate, setCrewmate] = useState({name: "", speed: "", color: "", role: ""});
+    const [crewmate, setCrewmate] = useState({name: "", speed: 0.0, color: "", role: ""});
 
     const handleChange = (event) => {
         const {name, value} = event.target;
@@ -32,15 +32,15 @@ const CreateCrew = () => {
     return (
         <div>
             <form>
-                <label >Name</label> <br />
+                <label >Name</label>
                 <input type="text" id="name" name="name" value={crewmate.name} onChange={handleChange} /><br />
                 <br/>
 
-                <label >Speed</label><br />
+                <label >Speed</label>
                 <input type="number" id="speed" name="speed" value={crewmate.speed} onChange={handleChange} /><br />
                 <br/>
 
-                <label>Color</label><br />
+                <label>Color</label>
                 <div>
                     <li>
                     <input type="radio" id="red" name="color" value="red" onChange={handleChange} />
@@ -59,9 +59,28 @@ const CreateCrew = () => {
                     Yellow
                     </li>
                 </div>
+                <div>
+                    <li>
+                    <input type="radio" id="purple" name="color" value="purple" onChange={handleChange} />
+                    Purple
+                    </li>
+                    <li>
+                    <input type="radio" id="brown" name="color" value="brown" onChange={handleChange} />
+                    Brown
+                    </li>
+                    <li>
+                    <input type="radio" id="orange" name="color" value="orange" onChange={handleChange} />
+                    Orange
+                    </li>
+                    <li>
+                    <input type="radio" id="white" name="color" value="white" onChange={handleChange} />
+                    White
+                    </li>
+                </div>
+
                 <br/>
 
-                <label>Role</label><br />
+                <label>Role</label>
                 <div>
                     <li>
                     <input type="radio" id="impostor" name="role" value="Impostor" onChange={handleChange} />

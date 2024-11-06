@@ -25,14 +25,25 @@ const CrewmateDetail = () => {
     fetchCrewmate();
   }, [id]);
 
+  const forColor = (color) => {
+    if (color === 'red' || color === 'orange' || color === 'yellow') {
+      return `${color.charAt(0).toUpperCase() + color.slice(1)} is a vibrant color! You might meet other crewmates with charisma!`;
+    } else if (color === 'green' || color === 'purple' || color === 'brown' || color === 'blue') {
+      return `Hmmm... I wouldn't trust a crewmate with color ${color}.`;
+    } else {
+      return "With such color you MUST be a ghost!";
+    }
+  };
+
   return (
-    <div className="CrewmateDetail">
+    <div >
       {crewmate ? (
-        <div>
-          <h2>{crewmate.name}</h2>
-          <h3>Speed: {crewmate.speed}</h3>
-          <h3>Color: {crewmate.color}</h3>
-          <h3>Role: {crewmate.role}</h3>
+        <div className="CrewmateDetail" style={{boxShadow: "1px 1px 1px " + crewmate.color}}>
+          <h2 style={{ textShadow: "2px 2px 2px " + crewmate.color}}>{crewmate.name}</h2>
+          <h3>{"Speed: " + crewmate.speed}</h3>
+          <h3>{"Role: " + crewmate.role}</h3>
+          <img className='crewmate' src={'/' + crewmate.color + '.webp'} alt={'Amomgus character color ' + crewmate.color}/>
+          <h3 style={{color: crewmate.color, textShadow: "2px -1px 2px black"}}>{forColor(crewmate.color)}</h3> {/* Correct function call here */}
         </div>
       ) : (
         <p>Loading crewmate details...</p>

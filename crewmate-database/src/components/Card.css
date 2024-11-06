@@ -10,13 +10,12 @@
     text-align: center;
 }
 
-.title {
-    color:white;
-    padding-left:30px;
-    font-size: 24px;
+.name {
+    color: beige;
+    padding-left: 30px;
 }
 
-.author {
+.attribute {
     color:white;
     margin-bottom: 20px;
     font-size: 20px;
@@ -25,6 +24,7 @@
 .moreButton {
     width: 30px;
     float:right;
+    height: 40px;
 
 }
 .moreButton:hover {
@@ -38,4 +38,10 @@
 .card-link {
     text-decoration: none;
     color: inherit;
+}
+
+.crewmate {
+    padding-right: 10px;
+    height: 350px;
+    width: 250px;
 }
